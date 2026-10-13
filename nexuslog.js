@@ -8,7 +8,11 @@ class Empresas {
     }
     desativar(){
         this.ativo = false 
-        console.log(`Empresa ${this.nome} desativada com sucesso`)
+        console.log(`Empresa ${this.nome} desativada com sucesso`);
+    }
+    ativar(){
+        this.ativo = true 
+        console.log(`Empresa ${this.nome} ativada com sucesso`);
     }
 }
 
@@ -38,14 +42,14 @@ class gerenciarEmpresa {
                 status = "inativo"
             }
             console.log(`${empresa.nome} - ${status}`)
-        })
+        });
     }
     buscarEmpresa(nome){
-        const empresaEncontrada = this.empresas.find((empresa) => { return empresa.nome === nome})
+        const empresaEncontrada = this.empresas.find((empresa) => { return empresa.nome === nome});
         if(!empresaEncontrada){
-            throw new Error (`Empresa não encontrada`)
+            throw new Error (`Empresa não encontrada`);
         }else {
-            console.log(`Empresa encontrada`)
+            console.log(`Empresa encontrada`);
         }
         return empresaEncontrada
     }
@@ -54,16 +58,34 @@ class gerenciarEmpresa {
         return this.empresas.length
     }
     contarEmpresasAtivas(){
-        const empresasAtivas = this.empresas.filter((empresa) => {return empresa.ativo === true})
+        const empresasAtivas = this.empresas.filter((empresa) => {return empresa.ativo === true});
         return empresasAtivas.length
     }
     listarNomes(){
-        const nomesEmpresas =this.empresas.map((empresa) => {return empresa.nome})
+        const nomesEmpresas =this.empresas.map((empresa) => {return empresa.nome});
         return nomesEmpresas
     }
     removerUltimaEmpresa(){
-        const ultimaEmpresa = this.empresas.pop()
-        console.log(`Ultima empresa ${ultimaEmpresa.nome} removida com sucesso`)
+        const ultimaEmpresa = this.empresas.pop();
+        console.log(`Ultima empresa ${ultimaEmpresa.nome} removida com sucesso`);
+    }
+    editarTelefone(nome, novoTelefone){
+        const empresaEditada = this.empresas.find((empresa) => empresa.nome === nome);
+        if(!empresaEditada){
+            throw new Error (`Empresa não encontrada`);
+        }
+        empresaEditada.telefone = novoTelefone
+        
+        console.log (`Empresa ${empresaEditada.nome} teve o telefone alterado para ${empresaEditada.telefone} com sucesso `);
+    }
+    editarEmail(nome, novoEmail){
+        const emailNovo = this.empresas.find((empresa) => empresa.nome === nome);
+         if(!emailNovo){
+            throw new Error (`Empresa n~so encontrada`);
+        }
+        emailNovo.email = novoEmail
+       
+        console.log(`O email da empresa ${emailNovo.nome} foi atualizado para ${emailNovo.email} com sucesso`);
     }
 }
 
@@ -94,6 +116,14 @@ console.log(gerenciador.listarNomes())
 gerenciador.removerUltimaEmpresa(`Café e Cia`)
 
 console.log(gerenciador.contarEmpresas())
+
+gerenciador.editarTelefone("Mercado Central", "(11) 99999-0000")
+
+gerenciador.editarEmail("Bella store", "ju@bellastore.com.br")
+
+empresa4.ativar()
+
+gerenciador.listarempresas()
 
 try {
      gerenciador.buscarEmpresa("Construtora Alfa")
