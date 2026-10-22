@@ -69,6 +69,15 @@ class gerenciarEmpresa {
         const ultimaEmpresa = this.empresas.pop();
         console.log(`Ultima empresa ${ultimaEmpresa.nome} removida com sucesso`);
     }
+    removerEmpresa(nome){
+        const empresaRemovida = this.empresas.find((empresa) => empresa.nome === nome);
+
+        const empresasAtualizadas = this.empresas.filter((empresa)=> empresa.nome !== nome)
+       console.log(`Empresa ${empresaRemovida.nome} removida com sucesso`)
+        this.empresas = empresasAtualizadas
+       return empresaRemovida
+
+    }
     editarTelefone(nome, novoTelefone){
         const empresaEditada = this.empresas.find((empresa) => empresa.nome === nome);
         if(!empresaEditada){
@@ -115,6 +124,8 @@ console.log(gerenciador.listarNomes())
 
 gerenciador.removerUltimaEmpresa(`Café e Cia`)
 
+gerenciador.removerEmpresa(`Auto Prime`)
+
 console.log(gerenciador.contarEmpresas())
 
 gerenciador.editarTelefone("Mercado Central", "(11) 99999-0000")
@@ -130,3 +141,145 @@ try {
 }catch (error){
     console.log(error.message)
 }
+
+// Menu interatico com o terminal !
+
+const readline = require(`readline`);
+
+const menu = readline.createInterface({
+    input: process.stdin,
+     output: process.stdout
+});
+
+function exibirMenu() {
+    console.log("===== NexusLog =====");
+console.log("1 - Cadastrar empresa");
+console.log("2 - Listar empresas");
+console.log("3 - Buscar empresa");
+console.log("4 - Editar telefone");
+console.log("5 - Editar email");
+console.log("6 - Ativar ou desativar empresa");
+console.log("7 - Remover empresa");
+console.log("0 - Sair");
+
+menu.question("Escolha uma opção:", (opcao) => {
+    if (opcao === "0"){
+        console.log(`Você encerrou a sessão`)
+         menu.close();
+   
+    } else if(opcao === "1"){
+        menu.question("Digite o nome da empresa que deseja cadastrar:\n>", (nome) => {
+            menu.question("Digite o nome do responsavel da empresa:\n>", (responsavel) => {
+                menu.question("Informe o Email da empresa:\n>", (email) =>{
+                    menu.question("Informe o número de telefone da empresa:\n>", (telefone) => {
+                
+                        const novaEmpresa = new Empresas (
+                            nome,
+                            responsavel,
+                            email,
+                            telefone,
+                            true
+                        );
+                        gerenciador.cadastrar(novaEmpresa)
+                    
+
+                console.log("Nome cadastrado:", nome)
+                console.log("Nome do responsavel:", responsavel)
+                console.log("Email cadastrado:", email)
+                console.log("telefone cadastrado:", telefone)
+
+               exibirMenu()
+
+                    });
+                });
+            });
+        });
+
+    } else if(opcao === "2"){
+        gerenciador.listarempresas()
+        exibirMenu();
+    
+
+    }else if(opcao === "3") {
+        menu.question("Digite o nome da empresa:\n>", (nome) => {
+            console.log(`Nome digitado:`, nome)
+            try {
+                const empresa = gerenciador.buscarEmpresa(nome);
+                console.log(empresa)
+            }catch (error) {
+                console.log(error.message);
+            }
+            exibirMenu()
+           
+        });
+    }else if(opcao === "4"){
+        menu.question("Digite o nome da empresa que deseja edital o telefone:\n>", (nome) => {
+            menu.question("Digite o novo número:\n>", (telefone) => {
+               
+                gerenciador.editarTelefone(nome, telefone)
+
+            console.log("Nome da empresa:", nome)
+            console.log("Número novo:", telefone)
+
+            exibirMenu()
+            });
+        });
+
+    }else if(opcao === "5"){
+        menu.question("Digite o nome da empresa que deseja editar o email:\n>", (nome) => {
+            menu.question("Digite o novo email:\n>", (email) => {
+            
+                gerenciador.editarEmail(nome, email)
+
+            console.log("Nome da empresa:", nome)
+            console.log("Novo email", email)
+
+            exibirMenu()
+            });
+        });
+
+    }else if(opcao === "6"){
+        menu.question("Digite o nome da empresa:\n>", (nome) => {
+            try{
+                const empresa = gerenciador.buscarEmpresa(nome)
+                menu.question("Digite A para ativar e digite D para desativar:\n>", (acao) =>{
+                    if(acao.toUpperCase() === "A"){
+                        empresa.ativar
+                    }else if(acao.toUpperCase() === "D"){
+                        empresa.desativar
+                    }else{
+                        console.log("Resposta inválida")
+                    }
+                    exibirMenu()
+                })
+                if(empresa.ativo === true){
+                    console.log("A empresa está ativa")
+                }else{
+                    console.log("A empresa está inativa")
+                }
+                console.log(empresa)
+            }catch (error) {
+                console.log(error.message)
+            }
+            exibirMenu()
+        })
+    }else if(opcao === "7"){
+        menu.question("Digite o nome da empresa que deseja remover:\n>", (nome) => {
+
+        try{
+            gerenciador.removerEmpresa(nome)
+        }catch (error){
+            console.log(error.message)
+        }
+
+        exibirMenu()
+        })
+    }else{
+        console.log(`Opção ainda não implementada`) 
+        exibirMenu()  
+    }
+     
+   });
+}
+ exibirMenu() 
+
