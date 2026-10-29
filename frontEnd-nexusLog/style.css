@@ -45,6 +45,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--cor-fundo) ;
+    display: flex;
+    min-height: 100vh;
 }
 
 .logo img{
@@ -86,3 +88,143 @@ object-fit: contain;
     width: 20px;
     height: 20px;
 }
+
+/*Conteúdo Principal*/
+
+.conteudo-principal{
+    flex: 1;
+    min-height: 0;
+    padding: 50px 30px;
+}
+.cabecalho h1 {
+font-size: 20px;
+color: var(--cor-texto);
+margin-bottom: 10px;
+}
+.cabecalho span {
+    color: var(--cor-destaque);
+}
+.cabecalho p {
+    font-size: var(--fonte-padrao);
+    color: var(--cor-texto-secundario);
+    
+}
+
+/*Cards*/
+
+.resumo-empresas {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+.cards-resumo {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+    box-sizing: border-box;
+}
+.cards-resumo p {
+font-size: var(--fonte-pequena);
+color: var(--cor-texto-secundario);
+}
+
+.card-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 100%;
+}
+.card-icone.total {
+    background-color: var(--cor-destaque);
+    color: var(--cor-destaque)
+}
+.card-icone.ativo {
+    display: flex;
+    background-color: var(--cor-sucesso);
+    color: var(--cor-sucesso);
+}
+.card-icone.inativo {
+    display: flex;
+    color: var(--cor-erro);
+    background-color: var(--cor-erro);
+}
+.card-icone {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+}
+
+.card-informacoes span {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.card-informacoes h2 {
+    font-size: 28px;
+}
+
+/* Cabeçalho*/
+
+.gestao-empresas {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card); 
+}
+.cabecalho-empresas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto);
+}
+.acoes-empresas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.campo-pesquisa input {
+    border: nome;
+    border-radius: var(--cor-borda);
+    outline: nome;
+    font-size: var(--fonte-pequena);
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+    
+}
+.botao-cadastro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: var(--raio-padrao);
+    font-size: var(--fonte-pequena);
+    cursor: pointer;
+}
+
+.botao-cadastro button {
+    font-size: 0;
+}
+
+
