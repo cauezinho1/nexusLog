@@ -13,7 +13,7 @@
     <aside class="menu-lateral"> 
 
         <div class="logo">
-            <img src="imgs/Logótipo NexusLog Azul em Fundo Transparente.png" alt="logo-empresa">
+            <img src="imgs/Logótipo NexusLog em Azul e Branco (1).png" alt="logo-empresa">
         </div>
         
         <nav class="menu">
@@ -21,7 +21,7 @@
             <ul>
                  <li>
             <a href="#" class="ativo">
-                <i data-lucide="house"></i>
+                <i data-lucide="house"></i> <!-- Informa qual icone será exibido-->
                 <span>Início</span>
             </a>
         </li>
@@ -47,11 +47,260 @@
             </a>
         </li>
             </ul>
-
         </nav>
+
+        <div class="area-usuario">
+
+            <div class="usuario">
+                <i data-lucide="circle-user-round"></i>
+                <div class="informacoes-usuario">
+                    <p>Olá, administrador</p>
+                    <small>admin@gmail.com</small>
+                </div>
+
+                <button class="botao-sair" aria-label="Sair">
+                     <i data-lucide="log-out"></i>
+                </button>
+
+            </div>
+        </div>
     </aside>
 
-    <script>
+
+    <!--Conteudo principal-->
+
+    <main class="conteudo-principal">
+        <header class="cabecalho">
+            <div>
+                <h1>Bem-vindo ao <span> NexusLog</span></h1>
+                <p>Gerencie suas empresa de forma simples e eficiente.</p>
+            </div>
+        </header>
+
+    <!--Cards-->
+
+    <section class="resumo-empresas">
+        
+        <div class="cards-resumo">
+            <div class="card-conteudo"> 
+                <div class="card-icone total">
+                    <i data-lucide="building-2"></i>
+                </div>
+
+                <div class="card-informacoes">
+                    <p>Total de empresas</p>
+                    <h2>0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-resumo">
+            <div class="card-conteudo">
+                <div class="card-icone ativo">
+                    <i data-lucide="circle-check"></i>
+                </div>
+
+                <div class="card-informacoes">
+                    <p>Empresas ativas</p>
+                    <h2>0</h2>
+                </div>
+            </div>    
+        </div>
+
+    <div class="cards-resumo">
+        <div class="card-conteudo">
+            <div class="card-icone inativo">
+                <i data-lucide="x"></i>
+            </div>
+
+            <div class="card-informacoes">
+                <span>Inativas</span>
+                <h2>0</h2>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+    <!-- cabeçalho -->
+
+    <section class="gestao-empresas">
+        <div class="cabecalho-empresas">
+             <h2>Lista de empresas</h2>
+
+            <div class="acoes-empresas">
+                <div class="campo-pesquisa">
+                    <input type="text" placeholder="Buscar por nome, email ou responsável">
+                </div>
+
+                <button class="botao-cadastro">
+                    Cadastrar empresa
+                </button>
+                        
+            </div>
+        </div>
+    </section> 
+
+    <!--Tabela-->
+
+    <div class="tabela-empresa">
+        <table> <!--Cria a tabela-->
+            <thead> <!--Contém o cabeçalho da tabela-->
+                <tr> <!--Cria uma linha-->
+                    <th> Empresa </th><!--Define um título de coluna-->
+                    <th> Responsável </th>
+                    <th> E-mail </th>
+                    <th> Telefone </th>
+                    <th> Status </th>
+                    <th> Ações </th> 
+                </tr>
+            </thead>
+
+            <tbody> <!--Contém os dados das empresas-->
+                <tr>
+                    <td> TechNova </td>
+                    <td> Marcelo Santos </td>
+                    <td> marcelo@technova.com.br </td>
+                    <td> (11) 99999-1122 </td>
+                    <td> Ativo </td>
+                    <td>
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td><!--Representa uma célula com um dado-->
+                </tr>
+
+                <tr>
+                    <td> Bella Store </td>
+                    <td> Juliana Martins </td>
+                    <td> juliana@bellastore.com.br </td>
+                    <td> (11) 97777-2233 </td>
+                    <td> Ativo </td>
+                    <td>
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Construtora Alfa </td>
+                    <td> Ricardo Oliveira </td>
+                    <td> ricardo@construtoraalfas.com.br </td>
+                    <td> (11) 96666-3344 </td>
+                    <td> Inativo </td>
+                    <td>
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td><!--Representa uma célula com um dado-->
+                </tr>
+
+                <tr>
+                    <td> Mercado Central </td>
+                    <td> Fernanda Costa </td>
+                    <td> fernanda@mercadocentral.com.br </td>
+                    <td> (11) 95555-4455 </td>
+                    <td> inativo </td>
+                    <td> <!--Representa uma célula com um dado-->
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Auto Prime </td>
+                    <td> Lucas Ferreira </td>
+                    <td> lucas@autoprime.com.br </td>
+                    <td> (11) 94444-4455 </td>
+                    <td> Inativo </td>
+                    <td>
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td><!--Representa uma célula com um dado-->
+                </tr>
+
+                <tr>
+                    <td> Café e Cia </td>
+                    <td> Camila Souza </td>
+                    <td> camila@cafeecia.com.br </td>
+                    <td> (11) 93333-6677 </td>
+                    <td> Ativo </td>
+                    <td>
+                        <div class="acoes-empresa">
+                            <button class="btn-editar" aria-label="editar-empresa"><!-- Atributo para descrever um elemento para leitores-->
+                                 <i data-lucide="pencil"></i> <!-- Informa qual icone será exibido-->
+                            </button>
+
+                            <button class="btn-visualizar" aria-label="Visualizar empresa">
+                                 <i data-lucide="eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" aria-label="Excluir empresa">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </td><!--Representa uma célula com um dado-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        
+    </main>
+
+     <script>
     lucide.createIcons();
     </script>
 </body>
