@@ -89,7 +89,7 @@
 
                 <div class="card-informacoes">
                     <p>Total de empresas</p>
-                    <h2>0</h2>
+                    <h2 id="totalEmpresas">0</h2>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
 
                 <div class="card-informacoes">
                     <p>Empresas ativas</p>
-                    <h2>0</h2>
+                    <h2 id="empresasAtivas">0</h2>
                 </div>
             </div>    
         </div>
@@ -114,8 +114,8 @@
             </div>
 
             <div class="card-informacoes">
-                <span>Inativas</span>
-                <h2>0</h2>
+                <span>Empresas Inativas</span>
+                <h2 id="empresasInativas">0</h2>
             </div>
         </div>
     </div>
@@ -128,15 +128,37 @@
         <div class="cabecalho-empresas">
              <h2>Lista de empresas</h2>
 
-            <div class="acoes-empresas">
-                <div class="campo-pesquisa">
-                    <input type="text" placeholder="Buscar por nome, email ou responsável">
-                </div>
-
                 <button class="botao-cadastro">
                     Cadastrar empresa
                 </button>
-                        
+
+    <!--Cadastrar empresa-->
+                      <div class="modal-cadastro">
+                        <div class="conteudo-modal">
+
+                            <label>Nome da empresa</label>
+                            <input type="text" id="cadastrar-nome">
+
+                            <label>Responsável</label>
+                            <input type="text" id="cadastrar-responsavel">
+
+                            <label>E-mail</label>
+                            <input type="email " id="cadastrar-email">
+
+                            <label>Telefone</label>
+                            <input type="text" id="cadastrar-telefone">
+
+                            <label>Status</label>
+                            <select id="cadastrar-status"> <!--cria uma lista suspensa de opções.-->
+                                <option value="Ativo">Ativo</option> <!--representa cada opção disponível dentro da lista.-->
+                                <option value="Inativo">Inativo</option> <!--value - define o valor que será utilizado pelo JavaScript quando uma opção for selecionada.-->
+                            </select>
+
+                            <button class="salvar-cadastro">Salvar cadastro</button>
+                            <button class="fechar-modal-cadastro">Cancelar</button>
+
+                        </div>
+                      </div>  
             </div>
         </div>
     </section> 
@@ -297,11 +319,58 @@
             </tbody>
         </table>
     </div>
-        
+
+    <!--Funcionalidades botões-->
+    <!--Visualizar-->
+    <div class="modal-visualizar">
+        <div class="conteudo-modal">
+            <h2>Detalhes da empresa</h2>
+
+            <p>Nome: <span id="visualizar-nome"></span></p>
+            <p>Responsável: <span id="visualizar-responsavel"></span></p>
+            <p>E-mail: <span id="visualizar-email"></span></p>
+            <p>Telefone: <span id="visualizar-telefone"></span></p>
+            <p>Status: <span id="visualizar-status"></span></p>
+
+            <button class="fechar-modal">Fechar</button>
+        </div>
+    </div>
+
+    <!--Editar-->
+    
+    <div class="modal-editar">
+        <div class="conteudo-modal">
+            <h2>Editar empresa</h2>
+
+            <label>Nome</label> <!--cria um rótulo para identificar um campo de formulário.-->
+            <input type="text" id="editar-nome"> <!--cria um campo onde o usuário pode inserir ou editar informações.-->
+
+            <label>Responsável</label>
+            <input type="text" id="editar-responsavel">
+
+            <label>E-mail</label>
+            <input type="email" id="editar-email">
+
+            <label>Telefone</label>
+            <input type="text" id="editar-telefone">
+
+            <label>Status</label>
+            <select id="editar-status"> <!--cria uma lista suspensa de opções.-->
+                <option value="Ativo">Ativo</option> <!--representa cada opção disponível dentro da lista.-->
+                <option value="Inativo">Inativo</option> <!--value - define o valor que será utilizado pelo JavaScript quando uma opção for selecionada.-->
+            </select>
+
+            <button class="salvar-edicao">Salvar alterações</button>
+            <button class="fechar-modal-editar">Cancelar</button>
+        </div>
+    </div>
+
     </main>
 
      <script>
     lucide.createIcons();
     </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
